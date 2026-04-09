@@ -3,7 +3,7 @@ import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   plugins: [vue()],
-  base: '/gufa-hanhua/',
+  base: '/gufa-hh/',
   resolve: {
     alias: {
       '@': '/src'
