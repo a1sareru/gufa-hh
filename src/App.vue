@@ -43,13 +43,13 @@ onMounted(async () => {
         }
       },
       onNextPage: () => {
-        const index = editorStore.activePageIndex
+        const index = editorStore.project!.pages.findIndex(p => p.id === editorStore.project!.activePageId)
         if (index < editorStore.project!.pages.length - 1) {
           editorStore.setActivePage(editorStore.project!.pages[index + 1].id)
         }
       },
       onPrevPage: () => {
-        const index = editorStore.activePageIndex
+        const index = editorStore.project!.pages.findIndex(p => p.id === editorStore.project!.activePageId)
         if (index > 0) {
           editorStore.setActivePage(editorStore.project!.pages[index - 1].id)
         }

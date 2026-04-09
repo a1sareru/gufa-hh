@@ -253,16 +253,15 @@ const setupCanvasEvents = () => {
       if ((width || 0) > 2 && (height || 0) > 2) {
         const d = `M ${left} ${top} L ${left! + (width || 0)} ${top} L ${left! + (width || 0)} ${top! + (height || 0)} L ${left} ${top! + (height || 0)} Z`
         const bounds = { x: left || 0, y: top || 0, width: width || 0, height: height || 0 }
-        const { getCanvasElement, sampleDominantColor } = await import('../services/canvas').then(m => ({ ...m, ...import('../services/inpaint') }))
-        // @ts-ignore
-        const { sampleDominantColor: sdc } = await import('../services/inpaint')
+        const { getCanvasElement } = await import('../services/canvas')
+        const { sampleDominantColor } = await import('../services/inpaint')
         const canvasEl = getCanvasElement()
         let fillColor = toolStore.preferences.maskDefaults.fillColor
         if (canvasEl) {
           const ctx = canvasEl.getContext('2d')
           if (ctx) {
             const imageData = ctx.getImageData(0, 0, canvasEl.width, canvasEl.height)
-            const color = sdc(imageData, bounds)
+            const color = sampleDominantColor(imageData, bounds)
             fillColor = `rgb(${color.r},${color.g},${color.b})`
           }
         }

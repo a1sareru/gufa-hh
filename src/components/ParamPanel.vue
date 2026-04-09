@@ -177,7 +177,13 @@ const updateMask = async (updates: any) => {
 
 const handleSaveProfile = () => {
   const name = prompt('請輸入預設名稱：', '新樣式')
-  if (name) toolStore.addCustomPreset(name, { ...localParams.value })
+  if (name) {
+    const { content, ...presetData } = localParams.value
+    toolStore.addCustomPreset(name, {
+      ...presetData,
+      letterSpacing: presetData.letterSpacing ?? 0,
+    })
+  }
 }
 
 const applyProfile = (preset: any) => {
@@ -201,11 +207,6 @@ const handleDeleteObject = async () => {
     toolStore.setSelectedObjectId(null)
   }
 }
-
-const showMasks = computed({
-  get: () => editorStore.showMasks,
-  set: (val) => editorStore.setShowMasks(val)
-})
 </script>
 
 <template>

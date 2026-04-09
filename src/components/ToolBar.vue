@@ -3,7 +3,6 @@ import { computed } from 'vue'
 import { useEditorStore } from '../stores/editorStore'
 import { useToolStore } from '../stores/toolStore'
 import { useHistoryStore } from '../stores/historyStore'
-import { createProject } from '../services/projectManager'
 import { exportAllAsZip, downloadBlob, exportPageAsBlob } from '../services/export'
 
 const editorStore = useEditorStore()
@@ -27,13 +26,6 @@ const handleFileImport = async (e: Event) => {
   if (input.files && input.files.length > 0) {
     const result = await editorStore.appendPages(Array.from(input.files))
     console.log('Imported', result)
-  }
-}
-
-const handleImportProject = (e: Event) => {
-  const input = e.target as HTMLInputElement
-  if (input.files && input.files[0]) {
-    editorStore.importProject(input.files[0])
   }
 }
 
