@@ -34,6 +34,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Check dist directory
+        run: ls -la dist/assets/ || echo "No assets directory found"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4.0.0
         with:
