@@ -1,0 +1,145 @@
+/* 字體定義 */
+@font-face {
+  font-family: "GenShinGothic-P-Medium";
+  src: url("/fonts/GenShinGothic-P-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "GenShinGothic-P-Heavy";
+  src: url("/fonts/GenShinGothic-P-Heavy.ttf") format("truetype");
+}
+
+/* Web 1.0 风格全局样式 */
+
+:root {
+  --color-bg: #fff;
+  --color-fg: #000;
+  --color-border: #999;
+  --color-accent: #0000cc;
+  --color-bg-secondary: #f0f0f0;
+  --color-bg-hover: #e0e0e0;
+  --color-error: #cc0000;
+  --color-warning: #cc6600;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  color: var(--color-fg);
+  background-color: var(--color-bg);
+}
+
+#app {
+  height: 100%;
+}
+
+/* 无圆角 */
+* {
+  border-radius: 0 !important;
+}
+
+/* 按钮：纯色背景、1px solid 边框、无渐变、无阴影 */
+button {
+  font-family: inherit;
+  font-size: 13px;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-fg);
+  border: 1px solid var(--color-border);
+  padding: 4px 10px;
+  cursor: pointer;
+  /* 无 transition, 无 box-shadow, 无 border-radius */
+}
+
+button:hover {
+  background-color: var(--color-bg-hover);
+}
+
+button:disabled {
+  color: #999;
+  cursor: not-allowed;
+  background-color: var(--color-bg-secondary);
+}
+
+button.active,
+button[aria-pressed="true"] {
+  background-color: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+
+/* 输入框 */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: 13px;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  border: 1px solid var(--color-border);
+  padding: 3px 6px;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-accent);
+}
+
+input[type="range"] {
+  border: none;
+  padding: 0;
+}
+
+input[type="color"] {
+  padding: 1px;
+  height: 26px;
+  cursor: pointer;
+}
+
+/* 链接 */
+a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #0000aa;
+}
+
+/* 标签 */
+label {
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* 分隔线 */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 8px 0;
+}
+
+/* 滚动条（简洁风格） */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border: 1px solid var(--color-bg-secondary);
+}
