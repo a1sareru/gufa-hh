@@ -32,6 +32,7 @@ const localParams = ref({
   strokeColor: toolStore.preferences.textDefaults.strokeColor,
   strokeWidth: toolStore.preferences.textDefaults.strokeWidth,
   lineHeight: toolStore.preferences.textDefaults.lineHeight,
+  letterSpacing: 0,
   direction: toolStore.preferences.textDefaults.direction,
   textAlign: toolStore.preferences.textDefaults.textAlign
 })
@@ -152,6 +153,7 @@ watch(selectedTextObject, (obj) => {
       strokeColor: obj.strokeColor,
       strokeWidth: obj.strokeWidth,
       lineHeight: obj.lineHeight,
+      letterSpacing: obj.letterSpacing ?? 0,
       direction: obj.direction,
       textAlign: obj.textAlign
     }

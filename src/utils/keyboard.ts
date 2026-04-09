@@ -1,6 +1,6 @@
 import type { useEditorStore } from '../stores/editorStore'
-import type { useToolStore } from '../stores/toolStore'
 import type { useHistoryStore } from '../stores/historyStore'
+import type { useToolStore } from '../stores/toolStore'
 
 export interface KeyboardStores {
   editor: ReturnType<typeof useEditorStore>
@@ -113,7 +113,7 @@ export function setupKeyboardShortcuts(
       if (spaceDown) {
         spaceDown = false
         if (!isInputFocused()) {
-          tool.setPreviousTool()
+          tool.setTool(tool.previousTool)
         }
       }
     }

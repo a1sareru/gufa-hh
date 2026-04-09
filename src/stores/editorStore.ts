@@ -1,17 +1,16 @@
 import { defineStore } from 'pinia'
 import type {
-  EditorState,
-  Project,
-  Page,
-  MaskRegion,
-  TextObject,
-  TextPreset,
-  PageSnapshot,
-  HistoryActionType,
-  FontStatus,
+    EditorState,
+    FontStatus,
+    HistoryActionType,
+    MaskRegion,
+    Page,
+    PageSnapshot,
+    Project,
+    TextObject,
+    TextPreset,
 } from '../types/index'
 import { useHistoryStore } from './historyStore'
-import * as storage from '../utils/storage'
 
 const BUILTIN_PRESETS: TextPreset[] = [
   {
